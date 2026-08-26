@@ -96,6 +96,7 @@ key.addEventListener("mouseenter", function(e){
 
 // when i click the button i want to play audio file
 const playButton = document.getElementById("play-button");
+const randomButton = document.getElementById("random-time");
 const audioTrack = document.getElementById("audio-track");
 
 function playPauseAudio(){
@@ -107,4 +108,32 @@ function playPauseAudio(){
     }
 }
 
+function randomTime(){
+    let trackLength = audioTrack.duration;
+    audioTrack.currentTime = trackLength * Math.random();
+}
+randomButton.addEventListener("click", randomTime);
+
 playButton.addEventListener("click", playPauseAudio);
+
+// set slider to change oscillator
+const oscSlider = document.getElementById("osc-range");
+
+function changeOsc(e){
+    console.log(e.target.value);
+    if(e.target.value > 50){
+        synth.set({
+            oscillator: {
+                type: "square"
+            }
+        })
+    } else {
+        synth.set({
+            oscillator: {
+                type: "sine"
+            }
+        })
+    }
+}
+
+oscSlider.addEventListener("change", changeOsc);
