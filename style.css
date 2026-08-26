@@ -47,3 +47,8 @@ button {
 #key-test:active {
     background-color: red;
 }
+
+img {
+    margin: 1rem;
+    position: relative;
+}

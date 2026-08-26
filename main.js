@@ -137,3 +137,27 @@ function changeOsc(e){
 }
 
 oscSlider.addEventListener("change", changeOsc);
+
+// spatial control section
+const flowerPainting = document.getElementById("flower-painting");
+
+flowerPainting.addEventListener("mouseenter", startNote);
+flowerPainting.addEventListener("mouseleave", endNote);
+
+function pitchBend(e){
+    console.log(e.layerX);
+    synth.set({
+        detune: e.layerX
+    });
+}
+
+flowerPainting.addEventListener("mousemove", pitchBend);
+
+// what is the current instant
+let currentInstant = Temporal.Now.instant();
+// find our time zone
+let timeZone = currentInstant.timeZoneID();
+console.log(currentInstant);
+// convert to local time
+let currentTime = currentInstant.toZonedDateTimeISO(timeZone);
+console.log(currentTime);
