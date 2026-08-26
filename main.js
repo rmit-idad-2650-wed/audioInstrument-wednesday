@@ -92,3 +92,19 @@ key.addEventListener("mouseenter", function(e){
 
 //key.addEventListener("click", playDataNote);
 //testButton.addEventListener("click", playDataNote);
+
+
+// when i click the button i want to play audio file
+const playButton = document.getElementById("play-button");
+const audioTrack = document.getElementById("audio-track");
+
+function playPauseAudio(){
+    // if audio is currently paused, play, else pause playing audio
+    if(audioTrack.paused === true){
+        audioTrack.play();
+    } else {
+        audioTrack.pause();
+    }
+}
+
+playButton.addEventListener("click", playPauseAudio);
