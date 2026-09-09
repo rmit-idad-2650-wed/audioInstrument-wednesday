@@ -168,3 +168,5 @@ console.log(plainTime.minute);
 if(plainTime.minute > 52){
     audioTrack.playbackRate = 0.5;
 }
+
+// checking to see if autoupdate works
